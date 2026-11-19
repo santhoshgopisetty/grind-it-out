@@ -12,3 +12,18 @@ var removeDuplicates = function (nums) {
     }
     return j;
 };
+
+
+var removeDuplicates = function (nums) {
+    let n = nums.length;
+    let idx = 0;
+
+    for (let i = 0; i < n; i++) {
+        while (i < n - 1 && nums[i] === nums[i + 1]) {
+            i++;
+        }
+        nums[idx++] = nums[i];
+    }
+
+    return idx;
+};

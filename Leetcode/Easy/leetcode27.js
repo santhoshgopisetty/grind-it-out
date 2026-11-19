@@ -1,10 +1,22 @@
 var removeElement = function (nums, val) {
-    let j = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== val) {
-            nums[j] = nums[i];
-            j++;
+    let i = 0;
+    let n = nums.length;
+    let j = n - 1;
+    let res = 0;
+
+    while (i <= j) {
+        while (j >= 0 && nums[j] === val) {
+            j--;
+            res++;
         }
+
+        if (i <= j && nums[i] === val) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            j--;
+            res++;
+        }
+        i++;
     }
-    return j;
+
+    return n - res;
 };
